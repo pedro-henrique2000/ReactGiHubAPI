@@ -1,7 +1,17 @@
 import axios from "axios";
 
-const api = axios.create({
-  baseURL: "https://api.github.com/users/",
-});
+const httpClient = axios.create();
 
-export default api;
+export function useGithubApi() {
+  async function searchUser(user: string) {
+    const response = await httpClient.get(
+      `https://api.github.com/users/${user}`
+    );
+
+    return response.data;
+  }
+
+  return {
+    searchUser,
+  };
+}
