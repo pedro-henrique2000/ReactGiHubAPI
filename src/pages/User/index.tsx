@@ -15,9 +15,10 @@ interface UserProps {
   avatar_url: string;
   followers: number;
   public_repos: number;
-  bio: string;
   name: string;
   following: number;
+  company: string;
+  created_at: string;
 }
 
 const User = () => {
@@ -28,9 +29,10 @@ const User = () => {
     avatar_url: "",
     followers: 0,
     public_repos: 0,
-    bio: "",
     name: "",
     following: 0,
+    company: "",
+    created_at: "",
   });
   const history = useHistory();
   const api = useGithubApi();
@@ -44,9 +46,10 @@ const User = () => {
           avatar_url,
           followers,
           public_repos,
-          bio,
           name,
           following,
+          company,
+          created_at,
         } = await api.searchUser(username);
 
         setUser({
@@ -55,13 +58,14 @@ const User = () => {
           avatar_url,
           followers,
           public_repos,
-          bio,
           name,
           following,
+          company,
+          created_at,
         });
       } catch (err) {
         window.alert(
-          `${err.response.data.message} with name ${username}, retornando para a home`
+          `${err.response.data.message} with name ${username}, returning to home.`
         );
         history.push("/");
       }
@@ -71,7 +75,6 @@ const User = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(user);
   return (
     <UserContainer>
       <UserInfoContainer>
@@ -80,10 +83,11 @@ const User = () => {
           avatar_url={user?.avatar_url}
           html_url={user?.html_url}
           name={user?.name}
-          bio={user?.bio}
           public_repos={user?.public_repos}
           followers={user?.followers}
           following={user?.following}
+          company={user?.company}
+          created_at={user?.created_at}
         />
         <UserRepos username={username} />
       </UserInfoContainer>

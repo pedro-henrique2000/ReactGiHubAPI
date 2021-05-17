@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const HomeContainer = styled.div`
   width: 90%;
   margin: 5rem auto;
+  flex: 1;
 `;
 
 export const HomeText = styled.h1`

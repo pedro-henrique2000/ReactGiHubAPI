@@ -16,7 +16,7 @@ const Header: React.FC<Props> = ({ toggleTheme }) => {
     <Container>
       <Link to="/">
         <GoMarkGithub color={colors.text} size={44} />
-        <LogoText>GitHub Search API</LogoText>
+        <LogoText>Github Search</LogoText>
       </Link>
       <Switch
         onChange={toggleTheme}

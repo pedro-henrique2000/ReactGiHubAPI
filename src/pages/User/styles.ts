@@ -6,7 +6,7 @@ export const UserContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 3rem auto;
-  justify-content: center;
+  flex: 1;
 `;
 
 export const UserInfoContainer = styled.div`
@@ -14,4 +14,9 @@ export const UserInfoContainer = styled.div`
   grid-template-columns: 1fr 2fr;
   gap: 1rem;
   width: 100%;
+  justify-items: center;
+
+  @media (max-width: 1080px) {
+    grid-template-columns: 1fr;
+  }
 `;

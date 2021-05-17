@@ -5,6 +5,7 @@ import usePersistedState from "./utils/usePersistedState";
 import light from "./styles/themes/light";
 import dark from "./styles/themes/dark";
 import Routes from "./Routes";
+import Footer from "./components/Footer";
 
 function App() {
   const [theme, setTheme] = usePersistedState<DefaultTheme>("theme", light);
@@ -18,6 +19,7 @@ function App() {
       <GlobalStyle />
       <Header toggleTheme={toggleTheme} />
       <Routes />
+      <Footer />
     </ThemeProvider>
   );
 }

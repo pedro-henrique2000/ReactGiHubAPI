@@ -22,7 +22,7 @@ const FormUser = () => {
       <Form onSubmit={handleSubmit}>
         <MdSearch size={20} />
         <Input
-          placeholder="Digite o nome de um usuário!"
+          placeholder="phb2000"
           onChange={(e) => setName(e.target.value)}
         />
         <Button>Encontrar</Button>
