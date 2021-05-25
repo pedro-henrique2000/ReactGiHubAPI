@@ -11,7 +11,7 @@ const FormUser = () => {
     e.preventDefault();
 
     if (name === "") {
-      window.alert("Campo Vazio!");
+      window.alert("Empty Input!");
     }
 
     history.push(`user/${name}`);
@@ -21,11 +21,8 @@ const FormUser = () => {
     <FormContainer>
       <Form onSubmit={handleSubmit}>
         <MdSearch size={20} />
-        <Input
-          placeholder="phb2000"
-          onChange={(e) => setName(e.target.value)}
-        />
-        <Button>Encontrar</Button>
+        <Input placeholder="Search" onChange={(e) => setName(e.target.value)} />
+        <Button>Search</Button>
       </Form>
     </FormContainer>
   );

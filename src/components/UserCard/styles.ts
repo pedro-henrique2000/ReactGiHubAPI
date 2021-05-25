@@ -9,10 +9,15 @@ export const UserCardContainer = styled.div`
   padding: 1rem;
   min-width: 500px;
   max-width: 700px;
+  max-height: 400px;
 
   @media (max-width: 600px) {
     min-width: 300px;
   }
+`;
+
+export const Name = styled.h1`
+  font-weight: 600;
 `;
 
 export const ProfileImage = styled.img`
@@ -27,6 +32,7 @@ export const ProfileImage = styled.img`
 export const Generic = styled.p`
   margin: 0.5rem 0;
   display: flex;
+  align-items: center;
 `;
 
 export const Info = styled.div`

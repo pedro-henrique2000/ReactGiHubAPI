@@ -5,9 +5,9 @@ const Home = () => {
   return (
     <HomeContainer>
       <HomeText>
-        Encontre informações de um usuário do GitHub de forma rápida e fácil!
+        Search for information and stats from Github users quickly and easily.
       </HomeText>
-      <HomeParagraph>Digite o nome do usuário abaixo.</HomeParagraph>
+      <HomeParagraph>Type the username bellow.</HomeParagraph>
       <FormUser />
     </HomeContainer>
   );

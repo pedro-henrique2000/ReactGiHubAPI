@@ -1,4 +1,4 @@
-import { Generic, Info, ProfileImage, UserCardContainer } from "./styles";
+import { Generic, Info, Name, ProfileImage, UserCardContainer } from "./styles";
 import {
   MdWork,
   MdPeopleOutline,
@@ -7,68 +7,49 @@ import {
   MdWatchLater,
 } from "react-icons/md";
 import { formatLocalDate } from "../../utils/formatLocalDate";
+import { VisitButton } from "../VisitButton";
+import { UserProps } from "../../types/userProps";
 
-interface UserProps {
-  login: string;
-  html_url: string;
-  avatar_url: string;
-  followers: number;
-  public_repos: number;
-  name: string;
-  following: number;
-  company: string;
-  created_at: string;
-}
-
-const UserCard = ({
-  login,
-  avatar_url,
-  html_url,
-  name,
-  public_repos,
-  followers,
-  following,
-  company,
-  created_at,
-}: UserProps) => {
+const UserCard = (user: UserProps) => {
   return (
     <UserCardContainer>
-      <h1>
-        {login} {name ? `| ${name}` : ""}
-      </h1>
-      <ProfileImage src={avatar_url} />
+      <Name>
+        {user.login} {user.name ? `| ${user.name}` : ""}
+      </Name>
+      <ProfileImage src={user.avatar_url} />
       <Info>
         <Generic>
           <MdPeople size={20} />
-          <span>{followers} Followers</span>
+          <span>{user.followers} Followers</span>
         </Generic>
         <Generic>
           <MdPeopleOutline size={20} />
-          <span>{following} Followings</span>
+          <span>{user.following} Followings</span>
         </Generic>
       </Info>
       <Info>
         <Generic>
           <MdAssessment size={20} />
-          <span>{public_repos} Public Repos</span>
+          <span>{user.public_repos} Public Repos</span>
         </Generic>
         <Generic>
           <MdWatchLater size={20} />
           <span>
-            Since {created_at && formatLocalDate(created_at, "dd/MM/yyyy")}
+            Since{" "}
+            {user.created_at && formatLocalDate(user.created_at, "dd/MM/yyyy")}
           </span>
         </Generic>
       </Info>
       <Info>
-        {company && (
+        {user.company && (
           <Generic>
             <MdWork size={20} />
-            <span>{company}</span>
+            <span>{user.company}</span>
           </Generic>
         )}
       </Info>
 
-      <a href={html_url}>Go to profile</a>
+      <VisitButton url={user.html_url} />
     </UserCardContainer>
   );
 };
